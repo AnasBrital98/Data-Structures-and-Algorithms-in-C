@@ -24,21 +24,20 @@ void display_List(Node *head)
     }
 }
 
-void insert_in_the_head(Node *head,int data)
+void insert_in_the_head(Node **head,int data)
 {
     Node *node = (Node*)malloc(sizeof(Node));
     node->value = data;
-    node->next = head;
-    head = node;
-    return head;
+    node->next = (*head);
+    (*head) = node;
 }
 
-void insert_in_the_end(Node *head,int data)
+void insert_in_the_end(Node **head,int data)
 {
     Node *node = (Node*)malloc(sizeof(Node));
     node->value = data;
     node->next = NULL;
-    Node *tmp = head;
+    Node *tmp = (*head);
     while(tmp->next != NULL)
     {
         tmp = tmp->next;
@@ -46,12 +45,12 @@ void insert_in_the_end(Node *head,int data)
     tmp->next = node;
 }
 
-void delete_value(Node *head,int data)
+void delete_value(Node **head,int data)
 {    
-    Node *tmp1 = head;
+    Node *tmp1 = (*head);
     if(tmp1->value == data)
     {
-        head = tmp1->next;
+        (*head) = tmp1->next;
         free(tmp1);
     }
     
@@ -68,11 +67,11 @@ void delete_value(Node *head,int data)
     }
 }
 
-void reverse(Node *head)
+void reverse(Node **head)
 {
     Node *previous,*current,*next;
     previous = NULL;
-    current = head;
+    current = (*head);
     next = NULL;
     while(current!=NULL)
     {
@@ -81,16 +80,16 @@ void reverse(Node *head)
         previous = current;
         current = next;                
     }
-    head = previous;
+    (*head) = previous;
 }
 
-void search_value(Node *head,int data)
+void search_value(Node **head,int data)
 {
-    if(isEmpty(head))
+    if(isEmpty(*head))
     {
         printf("the list is empty\n");
     }
-    Node *tmp = head;
+    Node *tmp = (*head);
     while(tmp!=NULL)
     {
         if(tmp->value == data)
