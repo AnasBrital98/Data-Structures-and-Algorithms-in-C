@@ -1,3 +1,4 @@
+#ifndef __Doubly_linked_struct__
 typedef struct Node{
     int value;
     struct Node *next;
@@ -15,3 +16,4 @@ void insert_After(Node **head,int x,int data);
 void delete(Node **head,int data);
 void search(Node **head,int data);
 void reverse(Node **head);
+#endif

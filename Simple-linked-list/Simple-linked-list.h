@@ -1,3 +1,5 @@
+ #ifndef __Simple__linked_struct_
+
 typedef struct Node{
     int value;
     struct Node *next;
@@ -11,3 +13,5 @@ void delete_value(Node **head,int data);
 void search_value(Node **head,int data);
 int isEmpty(Node *node);
 void reverse(Node **head);
+
+#endif
