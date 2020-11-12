@@ -109,23 +109,6 @@ int getHeight(Node *root)
     
     return 1 + max(getHeight(root->left),getHeight(root->right));    
 }
-/*int NumberOflevels(Node *root)
-{
-    if(root->left == NULL && root->right == NULL)
-        return 0;
-    int left = 0;
-    if(root->left != NULL)
-        left = getNumberOflevels(root->left);
-    int right = 0;
-    if(root->right != NULL)
-        right = getNumberOflevels(root->right);
-    return max(left,right) + 1;    
-}
-
-int getNumberOflevels(Node *root)
-{
-    return NumberOflevels(root)+1;
-}*/
 
 void calculateLevelSum(Node* root, int level, int *sum)
 {
